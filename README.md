@@ -15,6 +15,12 @@ baucis-openapi3
 This module generates customizable OpenAPI 3.0 definitions for your Baucis API.
 Use this module in conjunction with [Baucis](https://github.com/wprl/baucis).
 
+Note that [OpenAPI 3.0.0-RC](https://github.com/OAI/OpenAPI-Specification/blob/3.0.0-rc0/versions/3.0.md#serverVariableObject) is a draft version targeting tooling implementers as discused 
+[here](https://www.openapis.org/blog/2017/03/01/openapi-spec-3-implementers-draft-released).
+
+Breaking changes may occur before arriving the final stable version of the spec.
+
+
 Usage
 -----
 
