@@ -12,7 +12,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "lint": "node_modules/.bin/eslint *.js test/**/*.js",
+    "lint": "node_modules/.bin/eslint *.js src/**/*.js test/**/*.js",
     "pretest": "npm run lint",
     "test": "nyc mocha test/**/*.js --timeout 5000 -R spec ",
     "test:tdd": "mocha --timeout 5000 -R min --watch"
