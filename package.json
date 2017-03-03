@@ -14,9 +14,9 @@
   "scripts": {
     "lint": "node_modules/.bin/eslint *.js src/**/*.js test/**/*.js",
     "pretest": "npm run lint",
-    "test": "mocha test/**/*.js --timeout 5000 -R spec ",
-    "coverage": "nyc mocha test/**/*.js --timeout 5000 -R spec ",
-    "test:tdd": "mocha --timeout 5000 -R min --watch"
+    "test": "./node_modules/.bin/mocha --recursive test/**/*.js --timeout 5000 -R spec ",
+    "coverage": "nyc ./node_modules/.bin/mocha --recursive test/**/*.js --timeout 5000 -R spec ",
+    "test:tdd": "./node_modules/.bin/mocha --recursive --timeout 5000 -R min --watch"
   },
   "author": {
     "name": "Dr. Pedro J. Molina",
