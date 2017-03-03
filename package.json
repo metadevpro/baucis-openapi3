@@ -1,0 +1,55 @@
+{
+  "name": "baucis-openapi3",
+  "version": "0.1.0",
+  "description": "Generate customizable OpenAPI version 3.0.0-RC0 (evolving spec) definitions for your Baucis REST API.",
+  "homepage": "https://github.com/metad3v/baucis-openapi3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metad3v/baucis-openapi3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/metad3v/baucis-openapi3/issues/new"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "node_modules/.bin/eslint *.js test/**/*.js",
+    "pretest": "npm run lint",
+    "test": "nyc mocha test/**/*.js --timeout 5000 -R spec ",
+    "test:tdd": "mocha --timeout 5000 -R min --watch"
+  },
+  "author": {
+    "name": "Dr. Pedro J. Molina",
+    "email": "pjmolina@gmail.com",
+    "url": "http://pjmolina.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "deco": "~0.12.3"
+  },
+  "peerDependencies": {
+    "mongoose": ">=3 <5",
+    "baucis": "^1.0.0"
+  },
+  "devDependencies": {
+    "async": "^2.1.5",
+    "baucis": "~1.6.5",
+    "codeclimate-test-reporter": "^0.4.1",
+    "eslint": "^3.16.1",
+    "expect.js": "~0.3.1",
+    "express": "~4.15.0",
+    "mocha": "~3.2.0",
+    "mongoose": "^4.8.5",
+    "nyc": "^10.1.2",
+    "request": "^2.79.0"
+  },
+  "keywords": [
+    "baucis",
+    "REST",
+    "RESTful",
+    "API",
+    "plugin",
+    "openapi3",
+    "swagger",
+    "documentation"
+  ]
+}
