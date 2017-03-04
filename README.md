@@ -60,7 +60,7 @@ Extensibility
 
 If you want to modify the OpenAPI definition, generate the definition first.  (This will happen automatically otherwise.)
 
-Use the `openapi3` member of the controller to extend `paths` and `components` per controller.
+Use the `openApi3` member of the controller to extend `paths` and `components` per controller.
 
 ```javascript
 controller.generateOpenApi3();
