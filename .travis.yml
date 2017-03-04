@@ -4,4 +4,4 @@ node_js:
 services:
   - mongodb
 after_script:
-  - CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN node node_modules/codeclimate-test-reporter/bin/codeclimate.js < coverage/lcov.info
+  - node node_modules/codeclimate-test-reporter/bin/codeclimate.js < coverage/lcov.info
