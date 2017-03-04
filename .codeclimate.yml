@@ -3,5 +3,5 @@ engines:
     enabled: true
     config:
       languages:
-      - javascript:
-        mass_threshold: 55
+        javascript:
+          mass_threshold: 55
