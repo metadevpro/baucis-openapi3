@@ -4,4 +4,4 @@ engines:
     config:
       languages:
         javascript:
-          mass_threshold: 55
+          mass_threshold: 300
