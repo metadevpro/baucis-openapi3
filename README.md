@@ -30,7 +30,7 @@ Install with:
 
 Include the package after baucis is included, and before your API is built.
 
-`
+```javascript
     var express = require('express');
     var baucis = require('baucis');
     var apiDoc = require('baucis-openapi3');
@@ -41,7 +41,7 @@ Include the package after baucis is included, and before your API is built.
 
     baucis.rest('vegetable');
     app.use('/api', baucis());
-`
+```
 
 Then, access e.g. `GET http://localhost:3333/api/openapi.json`.  See the [Baucis](https://github.com/wprl/baucis) repo for more information about building REST APIs with [Baucis](https://github.com/wprl/baucis).
 
@@ -50,9 +50,9 @@ Tests
 Change the `test/fixures/config.json` if needed, to point to a valid mongodb database.
 Then run:
 
-`
+```
 npm test
-`
+```
 
 
 Extensibility
@@ -68,7 +68,7 @@ controller.openApi3.paths.xyz = '123';
 controller.openApi3.components.schemas.xyz = {};
 ```
 
-Or use the `openApi3Document` of the baucis instance module to access and modify dirrecty the full document after calling generateOpenApi3() on the API.
+Or use the `openApi3Document` of the baucis instance module to access and modify dirrecty the full document after calling `generateOpenApi3()` on the API.
 
 ```javascript
 var baucisInstance = baucis();
@@ -86,7 +86,7 @@ Backward compatibility
 
 In case you want to provide an easy transition as possible for your current API clients. You can expose both API descriptions at the same time including both modules:
 
-
+```javascript
     var express = require('express');
     var baucis = require('baucis');
     var swagger = require('baucis-swagger');
@@ -99,7 +99,7 @@ In case you want to provide an easy transition as possible for your current API 
 
     baucis.rest('vegetable');
     app.use('/api', baucis());
-
+```
 
 After that:
 - Swagger 1.1 doc will be exposed at `/api/documentation`
