@@ -1,14 +1,14 @@
 {
   "name": "baucis-openapi3",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generate customizable OpenAPI version 3.0.0-RC0 (evolving spec) definitions for your Baucis REST API.",
-  "homepage": "https://github.com/metad3v/baucis-openapi3",
+  "homepage": "https://github.com/metadevpro/baucis-openapi3",
   "repository": {
     "type": "git",
-    "url": "https://github.com/metad3v/baucis-openapi3.git"
+    "url": "https://github.com/metadevpro/baucis-openapi3.git"
   },
   "bugs": {
-    "url": "https://github.com/metad3v/baucis-openapi3/issues/new"
+    "url": "https://github.com/metadevpro/baucis-openapi3/issues/new"
   },
   "main": "index.js",
   "scripts": {

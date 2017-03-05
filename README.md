@@ -110,8 +110,7 @@ After that:
 Contact
 -------
 
- * https://metadev.pro
- * [@metad3v](https://twitter.com/metadev)
+ * [@metad3v](https://twitter.com/metad3v) https://metadev.pro
  * [@pmolinam](https://twitter.com/pmolinam)
 
 &copy; 2017 Metadev
