@@ -3,5 +3,7 @@ node_js:
   - "7"
 services:
   - mongodb
-after_script:
+after_success:
+  - nyc report -r lcov
   - node node_modules/codeclimate-test-reporter/bin/codeclimate.js < coverage/lcov.info
+  - node_modules/.bin/coveralls < coverage/lcov.info

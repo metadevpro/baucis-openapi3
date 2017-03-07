@@ -2,7 +2,7 @@ baucis-openapi3
 ===============
 
 [![Build Status](https://travis-ci.org/metadevpro/baucis-openapi3.svg)](https://travis-ci.org/metadevpro/baucis-openapi3)
-[![Code Climate](https://codeclimate.com/github/metadevpro/baucis-openapi3/badges/gpa.svg)](https://codeclimate.com/github/metadevpro/baucis-openapi3)
+[![Coverage Status](https://coveralls.io/repos/github/metadevpro/baucis-openapi3/badge.svg?branch=master)](https://coveralls.io/github/metadevpro/baucis-openapi3?branch=master)
 [![Test Coverage](https://codeclimate.com/github/metadevpro/baucis-openapi3/badges/coverage.svg)](https://codeclimate.com/github/metadevpro/baucis-openapi3)
 [![Dependency Status](https://david-dm.org/metadevpro/baucis-openapi3.svg)](https://david-dm.org/metadevpro/baucis-openapi3)
 [![bitHound Overall Score](https://www.bithound.io/github/metadevpro/baucis-openapi3/badges/score.svg)](https://www.bithound.io/github/metadevpro/baucis-openapi3)
