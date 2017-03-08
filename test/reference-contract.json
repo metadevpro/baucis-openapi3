@@ -1,0 +1,1790 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "my app",
+    "version": "3.14.15",
+    "description": "OpenAPI 3.0.0-RC implementors sample doc.",
+    "contact": {
+      "name": "Pedro J. Molina",
+      "url": "http://pjmolina.com",
+      "email": "pjmolina@acme.com"
+    },
+    "license": {
+      "name": "Apache 2",
+      "url": "http://apache.org"
+    },
+    "termsOfService": "My TOS"
+  },
+  "components": {
+    "schemas": {
+      "Vegetable": {
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "related": {
+            "$ref": "#/components/schemas/Vegetable"
+          },
+          "_id": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "Spook": {},
+      "Fungus": {
+        "properties": {
+          "dork": {
+            "type": "boolean"
+          },
+          "_id": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "Goose": {
+        "properties": {
+          "cooked": {
+            "type": "boolean"
+          },
+          "stuffed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GooseStuffed"
+            }
+          },
+          "_id": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "GooseStuffed": {
+        "properties": {
+          "bread": {
+            "type": "boolean"
+          },
+          "_id": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "ChargeArea": {
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "clusters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "_id": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "ChargeCluster": {
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "_id": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "ValidationError": {
+        "required": [
+          "message",
+          "name",
+          "kind",
+          "path"
+        ],
+        "properties": {
+          "properties": {
+            "$ref": "#/components/schemas/ValidationErrorProperties"
+          },
+          "message": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      },
+      "ValidationErrorProperties": {
+        "required": [
+          "type",
+          "message",
+          "path"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      },
+      "customDefinition": {
+        "properties": {
+          "a": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "parameters": {
+      "id": {
+        "name": "id",
+        "in": "path",
+        "description": "The identifier of the resource.",
+        "type": "string",
+        "required": true
+      },
+      "skip": {
+        "name": "skip",
+        "in": "query",
+        "description": "How many documents to skip. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#skip)",
+        "type": "integer",
+        "format": "int32",
+        "required": false
+      },
+      "limit": {
+        "name": "limit",
+        "in": "query",
+        "description": "The maximum number of documents to send. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#limit)",
+        "type": "integer",
+        "format": "int32",
+        "required": false
+      },
+      "count": {
+        "name": "count",
+        "in": "query",
+        "description": "Set to true to return count instead of documents. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#count)",
+        "type": "boolean",
+        "required": false
+      },
+      "conditions": {
+        "name": "conditions",
+        "in": "query",
+        "description": "Set the conditions used to find or remove the document(s). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#conditions)",
+        "type": "string",
+        "required": false
+      },
+      "sort": {
+        "name": "sort",
+        "in": "query",
+        "description": "Set the fields by which to sort. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#sort)",
+        "type": "string",
+        "required": false
+      },
+      "distinct": {
+        "name": "distinct",
+        "in": "query",
+        "description": "Set to a path name to retrieve an array of distinct values. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#distinct)",
+        "type": "string",
+        "required": false
+      },
+      "hint": {
+        "name": "hint",
+        "in": "query",
+        "description": "Add an index hint to the query (must be enabled per controller). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#hint)",
+        "type": "string",
+        "required": false
+      },
+      "comment": {
+        "name": "comment",
+        "in": "query",
+        "description": "Add a comment to a query (must be enabled per controller). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#comment)",
+        "type": "string",
+        "required": false
+      },
+      "select": {
+        "name": "select",
+        "in": "query",
+        "description": "Select which paths will be returned by the query. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#select)",
+        "type": "string",
+        "required": false
+      },
+      "populate": {
+        "name": "populate",
+        "in": "query",
+        "description": "Specify which paths to populate. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#populate)",
+        "type": "string",
+        "required": false
+      },
+      "X-Baucis-Update-Operator": {
+        "name": "X-Baucis-Update-Operator",
+        "in": "header",
+        "description": "**BYPASSES VALIDATION** May be used with PUT to update the document using $push, $pull, or $set. [doc](https://github.com/wprl/baucis/wiki/HTTP-Headers)",
+        "type": "string",
+        "required": false
+      }
+    },
+    "responses": {},
+    "securitySchemes": {
+      "authentication_basic": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "autentication_jwt": {
+        "type": "scheme",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "authentication_apikey": {
+        "type": "apiKey",
+        "name": "authentication_apikey",
+        "in": "header"
+      }
+    },
+    "examples": {},
+    "requestBodies": {},
+    "headers": {},
+    "links": {},
+    "callbacks": {}
+  },
+  "paths": {
+    "/vegetables/{id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/select"
+        },
+        {
+          "$ref": "#/components/parameters/populate"
+        },
+        {
+          "$ref": "#/components/parameters/id"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/Vegetable"
+            }
+          },
+          "404": {
+            "description": "No vegetable was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "getVegetableById",
+        "summary": "Get a vegetable by its unique ID",
+        "description": "Retrieve a vegetable by its ID.",
+        "tags": [
+          "vegetable"
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Baucis-Update-Operator"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/Vegetable"
+            }
+          },
+          "404": {
+            "description": "No vegetable was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "422": {
+            "description": "Validation error.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "description": "Update a vegetable by sending the paths to be updated in the request body.",
+              "schema": {
+                "$ref": "#/components/schemas/vegetable"
+              }
+            }
+          }
+        },
+        "operationId": "updateVegetable",
+        "summary": "Modify a vegetable by its unique ID",
+        "description": "Update an existing vegetable by its ID.",
+        "tags": [
+          "vegetable"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/Vegetable"
+            }
+          },
+          "404": {
+            "description": "No vegetable was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "deleteVegetableById",
+        "summary": "Delete a vegetable by its unique ID",
+        "description": "Deletes an existing vegetable by its ID.",
+        "tags": [
+          "vegetable"
+        ]
+      }
+    },
+    "/vegetables": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/select"
+        },
+        {
+          "$ref": "#/components/parameters/populate"
+        },
+        {
+          "$ref": "#/components/parameters/sort"
+        }
+      ],
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/conditions"
+          },
+          {
+            "$ref": "#/components/parameters/distinct"
+          },
+          {
+            "$ref": "#/components/parameters/hint"
+          },
+          {
+            "$ref": "#/components/parameters/comment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Collection of resources.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Vegetable"
+              }
+            }
+          },
+          "404": {
+            "description": "No vegetables matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "queryVegetable",
+        "summary": "Query some vegetables",
+        "description": "Query over vegetables.",
+        "tags": [
+          "vegetable"
+        ]
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/Vegetable"
+            }
+          },
+          "404": {
+            "description": "No vegetables matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "422": {
+            "description": "Validation error.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "createVegetable",
+        "summary": "Create some vegetables",
+        "description": "Create one or more vegetables.",
+        "tags": [
+          "vegetable"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/conditions"
+          },
+          {
+            "$ref": "#/components/parameters/distinct"
+          },
+          {
+            "$ref": "#/components/parameters/hint"
+          },
+          {
+            "$ref": "#/components/parameters/comment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Collection of resources.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Vegetable"
+              }
+            }
+          },
+          "404": {
+            "description": "No vegetables matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "deleteVegetableByQuery",
+        "summary": "Delete some vegetables by query",
+        "description": "Delete all vegetables matching the specified query.",
+        "tags": [
+          "vegetable"
+        ]
+      }
+    },
+    "/starkTrek": {
+      "get": {
+        "operationId": "enterprise",
+        "responses": {
+          "200": {
+            "description": "Sucessful response.",
+            "schema": {
+              "$ref": "#/components/schemas/Vegetable"
+            }
+          }
+        }
+      }
+    },
+    "/fungi/{id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/select"
+        },
+        {
+          "$ref": "#/components/parameters/populate"
+        },
+        {
+          "$ref": "#/components/parameters/id"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/Fungus"
+            }
+          },
+          "404": {
+            "description": "No fungus was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "getFungusById",
+        "summary": "Get a fungus by its unique ID",
+        "description": "Retrieve a fungus by its ID.",
+        "tags": [
+          "fungus"
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Baucis-Update-Operator"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/Fungus"
+            }
+          },
+          "404": {
+            "description": "No fungus was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "422": {
+            "description": "Validation error.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "description": "Update a fungus by sending the paths to be updated in the request body.",
+              "schema": {
+                "$ref": "#/components/schemas/fungus"
+              }
+            }
+          }
+        },
+        "operationId": "updateFungus",
+        "summary": "Modify a fungus by its unique ID",
+        "description": "Update an existing fungus by its ID.",
+        "tags": [
+          "fungus"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/Fungus"
+            }
+          },
+          "404": {
+            "description": "No fungus was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "deleteFungusById",
+        "summary": "Delete a fungus by its unique ID",
+        "description": "Deletes an existing fungus by its ID.",
+        "tags": [
+          "fungus"
+        ]
+      }
+    },
+    "/fungi": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/select"
+        },
+        {
+          "$ref": "#/components/parameters/populate"
+        },
+        {
+          "$ref": "#/components/parameters/sort"
+        }
+      ],
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/conditions"
+          },
+          {
+            "$ref": "#/components/parameters/distinct"
+          },
+          {
+            "$ref": "#/components/parameters/hint"
+          },
+          {
+            "$ref": "#/components/parameters/comment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Collection of resources.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Fungus"
+              }
+            }
+          },
+          "404": {
+            "description": "No fungi matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "queryFungus",
+        "summary": "Query some fungi",
+        "description": "Query over fungi.",
+        "tags": [
+          "fungus"
+        ]
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/Fungus"
+            }
+          },
+          "404": {
+            "description": "No fungi matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "422": {
+            "description": "Validation error.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "createFungus",
+        "summary": "Create some fungi",
+        "description": "Create one or more fungi.",
+        "tags": [
+          "fungus"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/conditions"
+          },
+          {
+            "$ref": "#/components/parameters/distinct"
+          },
+          {
+            "$ref": "#/components/parameters/hint"
+          },
+          {
+            "$ref": "#/components/parameters/comment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Collection of resources.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Fungus"
+              }
+            }
+          },
+          "404": {
+            "description": "No fungi matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "deleteFungusByQuery",
+        "summary": "Delete some fungi by query",
+        "description": "Delete all fungi matching the specified query.",
+        "tags": [
+          "fungus"
+        ]
+      }
+    },
+    "/geese/{id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/select"
+        },
+        {
+          "$ref": "#/components/parameters/populate"
+        },
+        {
+          "$ref": "#/components/parameters/id"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/Goose"
+            }
+          },
+          "404": {
+            "description": "No goose was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "getGooseById",
+        "summary": "Get a goose by its unique ID",
+        "description": "Retrieve a goose by its ID.",
+        "tags": [
+          "goose"
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Baucis-Update-Operator"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/Goose"
+            }
+          },
+          "404": {
+            "description": "No goose was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "422": {
+            "description": "Validation error.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "description": "Update a goose by sending the paths to be updated in the request body.",
+              "schema": {
+                "$ref": "#/components/schemas/goose"
+              }
+            }
+          }
+        },
+        "operationId": "updateGoose",
+        "summary": "Modify a goose by its unique ID",
+        "description": "Update an existing goose by its ID.",
+        "tags": [
+          "goose"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/Goose"
+            }
+          },
+          "404": {
+            "description": "No goose was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "deleteGooseById",
+        "summary": "Delete a goose by its unique ID",
+        "description": "Deletes an existing goose by its ID.",
+        "tags": [
+          "goose"
+        ]
+      }
+    },
+    "/geese": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/select"
+        },
+        {
+          "$ref": "#/components/parameters/populate"
+        },
+        {
+          "$ref": "#/components/parameters/sort"
+        }
+      ],
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/conditions"
+          },
+          {
+            "$ref": "#/components/parameters/distinct"
+          },
+          {
+            "$ref": "#/components/parameters/hint"
+          },
+          {
+            "$ref": "#/components/parameters/comment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Collection of resources.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Goose"
+              }
+            }
+          },
+          "404": {
+            "description": "No geese matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "queryGoose",
+        "summary": "Query some geese",
+        "description": "Query over geese.",
+        "tags": [
+          "goose"
+        ]
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/Goose"
+            }
+          },
+          "404": {
+            "description": "No geese matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "422": {
+            "description": "Validation error.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "createGoose",
+        "summary": "Create some geese",
+        "description": "Create one or more geese.",
+        "tags": [
+          "goose"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/conditions"
+          },
+          {
+            "$ref": "#/components/parameters/distinct"
+          },
+          {
+            "$ref": "#/components/parameters/hint"
+          },
+          {
+            "$ref": "#/components/parameters/comment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Collection of resources.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Goose"
+              }
+            }
+          },
+          "404": {
+            "description": "No geese matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "deleteGooseByQuery",
+        "summary": "Delete some geese by query",
+        "description": "Delete all geese matching the specified query.",
+        "tags": [
+          "goose"
+        ]
+      }
+    },
+    "/chargeareas/{id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/select"
+        },
+        {
+          "$ref": "#/components/parameters/populate"
+        },
+        {
+          "$ref": "#/components/parameters/id"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/ChargeArea"
+            }
+          },
+          "404": {
+            "description": "No chargeArea was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "getChargeAreaById",
+        "summary": "Get a chargeArea by its unique ID",
+        "description": "Retrieve a chargeArea by its ID.",
+        "tags": [
+          "chargeArea"
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Baucis-Update-Operator"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/ChargeArea"
+            }
+          },
+          "404": {
+            "description": "No chargeArea was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "422": {
+            "description": "Validation error.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "description": "Update a chargeArea by sending the paths to be updated in the request body.",
+              "schema": {
+                "$ref": "#/components/schemas/chargeArea"
+              }
+            }
+          }
+        },
+        "operationId": "updateChargeArea",
+        "summary": "Modify a chargeArea by its unique ID",
+        "description": "Update an existing chargeArea by its ID.",
+        "tags": [
+          "chargeArea"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/ChargeArea"
+            }
+          },
+          "404": {
+            "description": "No chargeArea was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "deleteChargeAreaById",
+        "summary": "Delete a chargeArea by its unique ID",
+        "description": "Deletes an existing chargeArea by its ID.",
+        "tags": [
+          "chargeArea"
+        ]
+      }
+    },
+    "/chargeareas": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/select"
+        },
+        {
+          "$ref": "#/components/parameters/populate"
+        },
+        {
+          "$ref": "#/components/parameters/sort"
+        }
+      ],
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/conditions"
+          },
+          {
+            "$ref": "#/components/parameters/distinct"
+          },
+          {
+            "$ref": "#/components/parameters/hint"
+          },
+          {
+            "$ref": "#/components/parameters/comment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Collection of resources.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ChargeArea"
+              }
+            }
+          },
+          "404": {
+            "description": "No chargeareas matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "queryChargeArea",
+        "summary": "Query some chargeareas",
+        "description": "Query over chargeareas.",
+        "tags": [
+          "chargeArea"
+        ]
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/ChargeArea"
+            }
+          },
+          "404": {
+            "description": "No chargeareas matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "422": {
+            "description": "Validation error.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "createChargeArea",
+        "summary": "Create some chargeareas",
+        "description": "Create one or more chargeareas.",
+        "tags": [
+          "chargeArea"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/conditions"
+          },
+          {
+            "$ref": "#/components/parameters/distinct"
+          },
+          {
+            "$ref": "#/components/parameters/hint"
+          },
+          {
+            "$ref": "#/components/parameters/comment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Collection of resources.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ChargeArea"
+              }
+            }
+          },
+          "404": {
+            "description": "No chargeareas matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "deleteChargeAreaByQuery",
+        "summary": "Delete some chargeareas by query",
+        "description": "Delete all chargeareas matching the specified query.",
+        "tags": [
+          "chargeArea"
+        ]
+      }
+    },
+    "/chargeclusters/{id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/select"
+        },
+        {
+          "$ref": "#/components/parameters/populate"
+        },
+        {
+          "$ref": "#/components/parameters/id"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/ChargeCluster"
+            }
+          },
+          "404": {
+            "description": "No chargeCluster was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "getChargeClusterById",
+        "summary": "Get a chargeCluster by its unique ID",
+        "description": "Retrieve a chargeCluster by its ID.",
+        "tags": [
+          "chargeCluster"
+        ]
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/X-Baucis-Update-Operator"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/ChargeCluster"
+            }
+          },
+          "404": {
+            "description": "No chargeCluster was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "422": {
+            "description": "Validation error.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "description": "Update a chargeCluster by sending the paths to be updated in the request body.",
+              "schema": {
+                "$ref": "#/components/schemas/chargeCluster"
+              }
+            }
+          }
+        },
+        "operationId": "updateChargeCluster",
+        "summary": "Modify a chargeCluster by its unique ID",
+        "description": "Update an existing chargeCluster by its ID.",
+        "tags": [
+          "chargeCluster"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/ChargeCluster"
+            }
+          },
+          "404": {
+            "description": "No chargeCluster was found with that ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "deleteChargeClusterById",
+        "summary": "Delete a chargeCluster by its unique ID",
+        "description": "Deletes an existing chargeCluster by its ID.",
+        "tags": [
+          "chargeCluster"
+        ]
+      }
+    },
+    "/chargeclusters": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/select"
+        },
+        {
+          "$ref": "#/components/parameters/populate"
+        },
+        {
+          "$ref": "#/components/parameters/sort"
+        }
+      ],
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/conditions"
+          },
+          {
+            "$ref": "#/components/parameters/distinct"
+          },
+          {
+            "$ref": "#/components/parameters/hint"
+          },
+          {
+            "$ref": "#/components/parameters/comment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Collection of resources.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ChargeCluster"
+              }
+            }
+          },
+          "404": {
+            "description": "No chargeclusters matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "queryChargeCluster",
+        "summary": "Query some chargeclusters",
+        "description": "Query over chargeclusters.",
+        "tags": [
+          "chargeCluster"
+        ]
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Single resource.",
+            "schema": {
+              "$ref": "#/components/schemas/ChargeCluster"
+            }
+          },
+          "404": {
+            "description": "No chargeclusters matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "422": {
+            "description": "Validation error.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "createChargeCluster",
+        "summary": "Create some chargeclusters",
+        "description": "Create one or more chargeclusters.",
+        "tags": [
+          "chargeCluster"
+        ]
+      },
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/conditions"
+          },
+          {
+            "$ref": "#/components/parameters/distinct"
+          },
+          {
+            "$ref": "#/components/parameters/hint"
+          },
+          {
+            "$ref": "#/components/parameters/comment"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response. Collection of resources.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ChargeCluster"
+              }
+            }
+          },
+          "404": {
+            "description": "No chargeclusters matched that query.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "operationId": "deleteChargeClusterByQuery",
+        "summary": "Delete some chargeclusters by query",
+        "description": "Delete all chargeclusters matching the specified query.",
+        "tags": [
+          "chargeCluster"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "vegetable",
+      "description": "Vegetable resource.",
+      "x-resource": true
+    },
+    {
+      "name": "fungus",
+      "description": "Fungus resource.",
+      "x-resource": true
+    },
+    {
+      "name": "goose",
+      "description": "Goose resource.",
+      "x-resource": true
+    },
+    {
+      "name": "chargeArea",
+      "description": "ChargeArea resource.",
+      "x-resource": true
+    },
+    {
+      "name": "chargeCluster",
+      "description": "ChargeCluster resource.",
+      "x-resource": true
+    }
+  ],
+  "servers": [
+    {
+      "url": "http://api1.acme.com",
+      "description": "My prod server",
+      "variables": {
+        "user": {
+          "default": "alicia",
+          "enum": [
+            "demo",
+            "joe",
+            "alicia"
+          ],
+          "description": "User name for authentication."
+        },
+        "env": {
+          "default": "qa",
+          "enum": [
+            "dev",
+            "qa",
+            "prod"
+          ],
+          "description": "Development to test."
+        }
+      }
+    },
+    {
+      "url": "http://api2.acme.com/qa",
+      "description": "My QA server",
+      "variables": {
+        "user": {
+          "default": "alicia",
+          "enum": [
+            "demo",
+            "joe",
+            "alicia"
+          ],
+          "description": "User name for authentication."
+        },
+        "env": {
+          "default": "qa",
+          "enum": [
+            "dev",
+            "qa",
+            "prod"
+          ],
+          "description": "Development to test."
+        }
+      }
+    }
+  ],
+  "x-powered-by": "baucis"
+}
