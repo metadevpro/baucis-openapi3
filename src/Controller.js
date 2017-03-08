@@ -18,6 +18,32 @@ module.exports = function () {
     return [resourceName];
   }
 
+  function humanVerb(verb) {
+    switch(verb) {
+      case "put":
+        return "Update";
+      case "post":
+        return "Create";
+      default:
+        return "undef";
+    }
+  }
+  function buildRequestBodyFor(isInstance, verb, resourceName) {
+    var requestBody = {
+      content: {
+        "application/json": {
+          description: humanVerb(verb) + " a " + resourceName +" by sending the paths to be updated in the request body.",
+          schema:{
+            $ref: "#/components/schemas/" + resourceName
+          }
+        }
+      }
+    };
+    if (isInstance && (verb === 'post' || verb === 'put')) {
+      return requestBody;
+    }
+    return null;
+  }
   function buildResponsesFor(isInstance, verb, resourceName, pluralName) {
     var responses = {};
 
@@ -86,11 +112,13 @@ module.exports = function () {
     var isInstance = (mode === 'instance');
     var resourceKey = utils.capitalize(resourceName);
     var res = {
-      //consumes: ['application/json'], //if used overrides global definition
-      //produces: ['application/json'], //if used overrides global definition
-      parameters: params.generateOperationParameters(isInstance, verb, controller),
+      parameters: params.generateOperationParameters(isInstance, verb),
       responses: buildResponsesFor(isInstance, verb, resourceName, pluralName)
     };
+    var rBody = buildRequestBodyFor(isInstance, verb, resourceName);
+    if (rBody) {
+      res.requestBody = rBody;
+    } 
     if (res.parameters.length === 0) {
       delete(res.parameters);
     }

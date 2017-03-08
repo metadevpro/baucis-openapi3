@@ -1,5 +1,4 @@
 //Module with helper functions for building OpenAPI parameters metadata 
-var utils = require('./utils');
 
 function getParamId() {
     return {
@@ -129,33 +128,14 @@ function getParamRef(name) {
     };
 }
 
-function getParamDocument(isPost, controller) {
-    return {
-        name: 'document',
-        in: 'body',
-        description: (isPost) ?
-            'Create a document by sending the paths to be added in the request body.' : 'Update a document by sending the paths to be updated in the request body.',
-        schema: {
-            // Pending: post body in baucis can be single or array: Polymorphic: not able to express this overload in OpenAPI 3.0
-            // Document as single
-            $ref: '#/components/schemas/' + utils.capitalize(controller.model().singular()),
-        },
-        required: true
-    };
-}
-
 // Generate parameter list for operations
-function generateOperationParameters(isInstance, verb, controller) {
+function generateOperationParameters(isInstance, verb) {
     var parameters = [];
-
     if (isInstance) {
         addOperationSingularParameters(verb, parameters);
     } else {
         addOperationCollectionParameters(verb, parameters);
     }
-    addPostParameters(verb, controller, parameters);
-    addPutParameters(verb, controller, parameters);
-
     return parameters;
 }
 
@@ -178,18 +158,6 @@ function addOperationCollectionParameters(verb, parameters) {
             getParamRef('hint'),
             getParamRef('comment')
         );
-    }
-}
-
-function addPostParameters(verb, controller, parameters) {
-    if (verb === 'post') {
-        parameters.push(getParamDocument(true, controller));
-    }
-}
-
-function addPutParameters(verb, controller, parameters) {
-    if (verb === 'put') {
-        parameters.push(getParamDocument(false, controller));
     }
 }
 

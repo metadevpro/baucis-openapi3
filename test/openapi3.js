@@ -1,5 +1,6 @@
 var expect = require('expect.js');
 var request = require('request');
+var fs = require('fs');
 
 var fixtures = require('./fixtures');
 var contractUrl = 'http://127.0.0.1:8012/api/openapi.json';
@@ -30,6 +31,24 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(response).to.have.property('statusCode', 200);
         expect(body).to.have.property('openapi', '3.0.0');
         done();
+      });
+    });
+    it('save sample contract to disk', function (done) {
+      var options = {
+        url: contractUrl,
+        json: true
+      };
+      request.get(options, function (err, response, body) {
+        if (err) { return done(err); }
+
+        expect(response).to.have.property('statusCode', 200);
+        expect(body).to.have.property('openapi', '3.0.0');
+
+        fs.writeFile("test/reference-contract.json", 
+                     JSON.stringify(body, null, 2), function(err) {
+          if (err) { done(err); }
+          done();
+        });
       });
     });
   });
@@ -478,7 +497,26 @@ describe('OpenAPI 3.0 Resources', function () {
         done();
       });
     });
+  });
 
+  describe('requestBodies', function () {
+    it('should generate the correct requesBody in put operation', function (done) {
+      var options = {
+        url: contractUrl,
+        json: true
+      };
+      request.get(options, function (err, response, body) {
+        if (err) { return done(err); }
+        var rBody = body.paths['/vegetables/{id}'].put.requestBody;
+
+        expect(rBody).to.have.property('content');
+        expect(rBody.content).to.have.property('application/json');
+        expect(rBody.content['application/json']).to.have.property('schema');
+        expect(rBody.content['application/json']).to.have.property('description');
+
+        done(); 
+      });
+    });
   });
 
   describe('responses', function () {
@@ -1012,29 +1050,6 @@ describe('OpenAPI 3.0 Resources', function () {
 
         var param = getItemFromArray(body.paths['/vegetables/{id}'].parameters, '$ref', '#/components/parameters/id');
         expect(param).to.have.property('$ref', '#/components/parameters/id');
-
-        done();
-      });
-    });
-
-    it('param document is generated', function (done) {
-      var options = {
-        url: contractUrl,
-        json: true
-      };
-      request.get(options, function (err, response, body) {
-        if (err) { return done(err); }
-
-        expect(response).to.have.property('statusCode', 200);
-
-        expect(body.paths['/vegetables/{id}'].put.parameters).to.be.an(Array);
-        var param = getItemFromArray(body.paths['/vegetables/{id}'].put.parameters, 'name', 'document');
-        expect(param).to.have.property('name', 'document');
-        expect(param).to.have.property('in', 'body');
-        expect(param).to.have.property('description', 'Update a document by sending the paths to be updated in the request body.');
-        expect(param).to.have.property('schema');
-        expect(param.schema).to.have.property('$ref', '#/components/schemas/Vegetable');
-        expect(param).to.have.property('required', true);
 
         done();
       });
