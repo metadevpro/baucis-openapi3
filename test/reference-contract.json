@@ -15,305 +15,83 @@
     },
     "termsOfService": "My TOS"
   },
-  "components": {
-    "schemas": {
-      "Vegetable": {
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "related": {
-            "$ref": "#/components/schemas/Vegetable"
-          },
-          "_id": {
-            "type": "string"
-          },
-          "__v": {
-            "type": "number",
-            "format": "int32"
-          },
-          "id": {
-            "type": "string"
-          }
-        }
-      },
-      "Spook": {},
-      "Fungus": {
-        "properties": {
-          "dork": {
-            "type": "boolean"
-          },
-          "_id": {
-            "type": "string"
-          },
-          "__v": {
-            "type": "number",
-            "format": "int32"
-          },
-          "id": {
-            "type": "string"
-          }
-        }
-      },
-      "Goose": {
-        "properties": {
-          "cooked": {
-            "type": "boolean"
-          },
-          "stuffed": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GooseStuffed"
-            }
-          },
-          "_id": {
-            "type": "string"
-          },
-          "__v": {
-            "type": "number",
-            "format": "int32"
-          },
-          "id": {
-            "type": "string"
-          }
-        }
-      },
-      "GooseStuffed": {
-        "properties": {
-          "bread": {
-            "type": "boolean"
-          },
-          "_id": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          }
-        }
-      },
-      "ChargeArea": {
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "orders": {
-            "type": "array",
-            "items": {
-              "type": "number"
-            }
-          },
-          "clusters": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "_id": {
-            "type": "string"
-          },
-          "__v": {
-            "type": "number",
-            "format": "int32"
-          },
-          "id": {
-            "type": "string"
-          }
-        }
-      },
-      "ChargeCluster": {
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "_id": {
-            "type": "string"
-          },
-          "__v": {
-            "type": "number",
-            "format": "int32"
-          },
-          "id": {
-            "type": "string"
-          }
-        }
-      },
-      "ValidationError": {
-        "required": [
-          "message",
-          "name",
-          "kind",
-          "path"
-        ],
-        "properties": {
-          "properties": {
-            "$ref": "#/components/schemas/ValidationErrorProperties"
-          },
-          "message": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "kind": {
-            "type": "string"
-          },
-          "path": {
-            "type": "string"
-          }
-        }
-      },
-      "ValidationErrorProperties": {
-        "required": [
-          "type",
-          "message",
-          "path"
-        ],
-        "properties": {
-          "type": {
-            "type": "string"
-          },
-          "message": {
-            "type": "string"
-          },
-          "path": {
-            "type": "string"
-          }
-        }
-      },
-      "customDefinition": {
-        "properties": {
-          "a": {
-            "type": "string"
-          }
+  "servers": [
+    {
+      "url": "http://api1.acme.com",
+      "description": "My prod server",
+      "variables": {
+        "user": {
+          "default": "alicia",
+          "enum": [
+            "demo",
+            "joe",
+            "alicia"
+          ],
+          "description": "User name for authentication."
+        },
+        "env": {
+          "default": "qa",
+          "enum": [
+            "dev",
+            "qa",
+            "prod"
+          ],
+          "description": "Development to test."
         }
       }
     },
-    "parameters": {
-      "id": {
-        "name": "id",
-        "in": "path",
-        "description": "The identifier of the resource.",
-        "type": "string",
-        "required": true
-      },
-      "skip": {
-        "name": "skip",
-        "in": "query",
-        "description": "How many documents to skip. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#skip)",
-        "type": "integer",
-        "format": "int32",
-        "required": false
-      },
-      "limit": {
-        "name": "limit",
-        "in": "query",
-        "description": "The maximum number of documents to send. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#limit)",
-        "type": "integer",
-        "format": "int32",
-        "required": false
-      },
-      "count": {
-        "name": "count",
-        "in": "query",
-        "description": "Set to true to return count instead of documents. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#count)",
-        "type": "boolean",
-        "required": false
-      },
-      "conditions": {
-        "name": "conditions",
-        "in": "query",
-        "description": "Set the conditions used to find or remove the document(s). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#conditions)",
-        "type": "string",
-        "required": false
-      },
-      "sort": {
-        "name": "sort",
-        "in": "query",
-        "description": "Set the fields by which to sort. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#sort)",
-        "type": "string",
-        "required": false
-      },
-      "distinct": {
-        "name": "distinct",
-        "in": "query",
-        "description": "Set to a path name to retrieve an array of distinct values. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#distinct)",
-        "type": "string",
-        "required": false
-      },
-      "hint": {
-        "name": "hint",
-        "in": "query",
-        "description": "Add an index hint to the query (must be enabled per controller). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#hint)",
-        "type": "string",
-        "required": false
-      },
-      "comment": {
-        "name": "comment",
-        "in": "query",
-        "description": "Add a comment to a query (must be enabled per controller). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#comment)",
-        "type": "string",
-        "required": false
-      },
-      "select": {
-        "name": "select",
-        "in": "query",
-        "description": "Select which paths will be returned by the query. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#select)",
-        "type": "string",
-        "required": false
-      },
-      "populate": {
-        "name": "populate",
-        "in": "query",
-        "description": "Specify which paths to populate. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#populate)",
-        "type": "string",
-        "required": false
-      },
-      "X-Baucis-Update-Operator": {
-        "name": "X-Baucis-Update-Operator",
-        "in": "header",
-        "description": "**BYPASSES VALIDATION** May be used with PUT to update the document using $push, $pull, or $set. [doc](https://github.com/wprl/baucis/wiki/HTTP-Headers)",
-        "type": "string",
-        "required": false
+    {
+      "url": "http://api2.acme.com/qa",
+      "description": "My QA server",
+      "variables": {
+        "user": {
+          "default": "alicia",
+          "enum": [
+            "demo",
+            "joe",
+            "alicia"
+          ],
+          "description": "User name for authentication."
+        },
+        "env": {
+          "default": "qa",
+          "enum": [
+            "dev",
+            "qa",
+            "prod"
+          ],
+          "description": "Development to test."
+        }
       }
+    }
+  ],
+  "tags": [
+    {
+      "name": "vegetable",
+      "description": "Vegetable resource.",
+      "x-resource": true
     },
-    "responses": {},
-    "securitySchemes": {
-      "authentication_basic": {
-        "type": "http",
-        "scheme": "basic"
-      },
-      "autentication_jwt": {
-        "type": "scheme",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
-      },
-      "authentication_apikey": {
-        "type": "apiKey",
-        "name": "authentication_apikey",
-        "in": "header"
-      }
+    {
+      "name": "fungus",
+      "description": "Fungus resource.",
+      "x-resource": true
     },
-    "examples": {},
-    "requestBodies": {},
-    "headers": {},
-    "links": {},
-    "callbacks": {}
-  },
+    {
+      "name": "goose",
+      "description": "Goose resource.",
+      "x-resource": true
+    },
+    {
+      "name": "chargeArea",
+      "description": "ChargeArea resource.",
+      "x-resource": true
+    },
+    {
+      "name": "chargeCluster",
+      "description": "ChargeCluster resource.",
+      "x-resource": true
+    }
+  ],
   "paths": {
     "/vegetables/{id}": {
       "parameters": [
@@ -1709,82 +1487,304 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "vegetable",
-      "description": "Vegetable resource.",
-      "x-resource": true
-    },
-    {
-      "name": "fungus",
-      "description": "Fungus resource.",
-      "x-resource": true
-    },
-    {
-      "name": "goose",
-      "description": "Goose resource.",
-      "x-resource": true
-    },
-    {
-      "name": "chargeArea",
-      "description": "ChargeArea resource.",
-      "x-resource": true
-    },
-    {
-      "name": "chargeCluster",
-      "description": "ChargeCluster resource.",
-      "x-resource": true
-    }
-  ],
-  "servers": [
-    {
-      "url": "http://api1.acme.com",
-      "description": "My prod server",
-      "variables": {
-        "user": {
-          "default": "alicia",
-          "enum": [
-            "demo",
-            "joe",
-            "alicia"
-          ],
-          "description": "User name for authentication."
-        },
-        "env": {
-          "default": "qa",
-          "enum": [
-            "dev",
-            "qa",
-            "prod"
-          ],
-          "description": "Development to test."
+  "components": {
+    "schemas": {
+      "Vegetable": {
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "related": {
+            "$ref": "#/components/schemas/Vegetable"
+          },
+          "_id": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "Spook": {},
+      "Fungus": {
+        "properties": {
+          "dork": {
+            "type": "boolean"
+          },
+          "_id": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "Goose": {
+        "properties": {
+          "cooked": {
+            "type": "boolean"
+          },
+          "stuffed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GooseStuffed"
+            }
+          },
+          "_id": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "GooseStuffed": {
+        "properties": {
+          "bread": {
+            "type": "boolean"
+          },
+          "_id": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "ChargeArea": {
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "clusters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "_id": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "ChargeCluster": {
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "_id": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
+      "ValidationError": {
+        "required": [
+          "message",
+          "name",
+          "kind",
+          "path"
+        ],
+        "properties": {
+          "properties": {
+            "$ref": "#/components/schemas/ValidationErrorProperties"
+          },
+          "message": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      },
+      "ValidationErrorProperties": {
+        "required": [
+          "type",
+          "message",
+          "path"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      },
+      "customDefinition": {
+        "properties": {
+          "a": {
+            "type": "string"
+          }
         }
       }
     },
-    {
-      "url": "http://api2.acme.com/qa",
-      "description": "My QA server",
-      "variables": {
-        "user": {
-          "default": "alicia",
-          "enum": [
-            "demo",
-            "joe",
-            "alicia"
-          ],
-          "description": "User name for authentication."
-        },
-        "env": {
-          "default": "qa",
-          "enum": [
-            "dev",
-            "qa",
-            "prod"
-          ],
-          "description": "Development to test."
-        }
+    "parameters": {
+      "id": {
+        "name": "id",
+        "in": "path",
+        "description": "The identifier of the resource.",
+        "type": "string",
+        "required": true
+      },
+      "skip": {
+        "name": "skip",
+        "in": "query",
+        "description": "How many documents to skip. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#skip)",
+        "type": "integer",
+        "format": "int32",
+        "required": false
+      },
+      "limit": {
+        "name": "limit",
+        "in": "query",
+        "description": "The maximum number of documents to send. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#limit)",
+        "type": "integer",
+        "format": "int32",
+        "required": false
+      },
+      "count": {
+        "name": "count",
+        "in": "query",
+        "description": "Set to true to return count instead of documents. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#count)",
+        "type": "boolean",
+        "required": false
+      },
+      "conditions": {
+        "name": "conditions",
+        "in": "query",
+        "description": "Set the conditions used to find or remove the document(s). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#conditions)",
+        "type": "string",
+        "required": false
+      },
+      "sort": {
+        "name": "sort",
+        "in": "query",
+        "description": "Set the fields by which to sort. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#sort)",
+        "type": "string",
+        "required": false
+      },
+      "distinct": {
+        "name": "distinct",
+        "in": "query",
+        "description": "Set to a path name to retrieve an array of distinct values. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#distinct)",
+        "type": "string",
+        "required": false
+      },
+      "hint": {
+        "name": "hint",
+        "in": "query",
+        "description": "Add an index hint to the query (must be enabled per controller). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#hint)",
+        "type": "string",
+        "required": false
+      },
+      "comment": {
+        "name": "comment",
+        "in": "query",
+        "description": "Add a comment to a query (must be enabled per controller). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#comment)",
+        "type": "string",
+        "required": false
+      },
+      "select": {
+        "name": "select",
+        "in": "query",
+        "description": "Select which paths will be returned by the query. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#select)",
+        "type": "string",
+        "required": false
+      },
+      "populate": {
+        "name": "populate",
+        "in": "query",
+        "description": "Specify which paths to populate. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#populate)",
+        "type": "string",
+        "required": false
+      },
+      "X-Baucis-Update-Operator": {
+        "name": "X-Baucis-Update-Operator",
+        "in": "header",
+        "description": "**BYPASSES VALIDATION** May be used with PUT to update the document using $push, $pull, or $set. [doc](https://github.com/wprl/baucis/wiki/HTTP-Headers)",
+        "type": "string",
+        "required": false
       }
-    }
-  ],
+    },
+    "responses": {},
+    "securitySchemes": {
+      "authentication_basic": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "autentication_jwt": {
+        "type": "scheme",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "authentication_apikey": {
+        "type": "apiKey",
+        "name": "authentication_apikey",
+        "in": "header"
+      }
+    },
+    "examples": {},
+    "requestBodies": {},
+    "headers": {},
+    "links": {},
+    "callbacks": {}
+  },
   "x-powered-by": "baucis"
 }

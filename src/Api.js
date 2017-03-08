@@ -89,7 +89,11 @@ function buildPaths(opts, controllers) {
   }
   return paths;
 }
-
+function buildDefaultServers() {
+  return [{
+      url: "/api"
+    }];
+}
 // A method for generating OpenAPI resource listing
 function generateResourceListing(options) {
   var controllers = options.controllers;
@@ -98,16 +102,14 @@ function generateResourceListing(options) {
   var listing = {
     openapi: '3.0.0',
     info: buildInfo(opts),
-    components: buildComponents(opts, controllers),
-    paths: buildPaths(opts, controllers),
+    servers: opts.servers || buildDefaultServers(),
     tags: buildTags(opts, controllers),
+    paths: buildPaths(opts, controllers),
+    components: buildComponents(opts, controllers)
   };
 
   mergeIn(listing.paths, opts.paths);
 
-  if (opts.servers) {
-    listing.servers = opts.servers;
-  }
   if (opts.security) {
     listing.security = opts.security;
   }
