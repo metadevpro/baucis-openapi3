@@ -5,7 +5,9 @@ function getParamId() {
         name: 'id',
         in: 'path',
         description: 'The identifier of the resource.',
-        type: 'string',
+        schema: {
+            type: 'string'
+        },
         required: true
     };
 }
@@ -15,7 +17,9 @@ function getParamXBaucisUpdateOperator() {
         name: 'X-Baucis-Update-Operator',
         in: 'header',
         description: '**BYPASSES VALIDATION** May be used with PUT to update the document using $push, $pull, or $set. [doc](https://github.com/wprl/baucis/wiki/HTTP-Headers)',
-        type: 'string',
+        schema: {
+            type: 'string'
+        },
         required: false
     };
 }
@@ -25,8 +29,10 @@ function getParamSkip() {
         name: 'skip',
         in: 'query',
         description: 'How many documents to skip. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#skip)',
-        type: 'integer',
-        format: 'int32',
+        schema: {
+            type: 'integer',
+            format: 'int32'
+        },
         required: false
     };
 }
@@ -36,8 +42,10 @@ function getParamLimit() {
         name: 'limit',
         in: 'query',
         description: 'The maximum number of documents to send. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#limit)',
-        type: 'integer',
-        format: 'int32',
+        schema: {
+            type: 'integer',
+            format: 'int32'
+        },
         required: false
     };
 }
@@ -47,7 +55,9 @@ function getParamCount() {
         name: 'count',
         in: 'query',
         description: 'Set to true to return count instead of documents. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#count)',
-        type: 'boolean',
+        schema: {
+            type: 'boolean'
+        },
         required: false
     };
 }
@@ -57,7 +67,9 @@ function getParamConditions() {
         name: 'conditions',
         in: 'query',
         description: 'Set the conditions used to find or remove the document(s). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#conditions)',
-        type: 'string',
+        schema: {
+            type: 'string'
+        },
         required: false
     };
 }
@@ -67,7 +79,9 @@ function getParamSort() {
         name: 'sort',
         in: 'query',
         description: 'Set the fields by which to sort. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#sort)',
-        type: 'string',
+        schema: {
+            type: 'string'
+        },
         required: false
     };
 }
@@ -77,7 +91,9 @@ function getParamSelect() {
         name: 'select',
         in: 'query',
         description: 'Select which paths will be returned by the query. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#select)',
-        type: 'string',
+        schema: {
+            type: 'string'
+        },
         required: false
     };
 }
@@ -87,7 +103,9 @@ function getParamPopulate() {
         name: 'populate',
         in: 'query',
         description: 'Specify which paths to populate. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#populate)',
-        type: 'string',
+        schema: {
+            type: 'string'
+        },
         required: false
     };
 }
@@ -97,7 +115,9 @@ function getParamDistinct() {
         name: 'distinct',
         in: 'query',
         description: 'Set to a path name to retrieve an array of distinct values. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#distinct)',
-        type: 'string',
+        schema: {
+            type: 'string'
+        },
         required: false
     };
 }
@@ -107,7 +127,9 @@ function getParamHint() {
         name: 'hint',
         in: 'query',
         description: 'Add an index hint to the query (must be enabled per controller). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#hint)',
-        type: 'string',
+        schema: {
+            type: 'string'
+        },
         required: false
     };
 }
@@ -117,7 +139,9 @@ function getParamComment() {
         name: 'comment',
         in: 'query',
         description: 'Add a comment to a query (must be enabled per controller). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#comment)',
-        type: 'string',
+        schema: {
+            type: 'string'
+        },
         required: false
     };
 }

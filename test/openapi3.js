@@ -672,8 +672,10 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(param).to.have.property('name', 'skip');
         expect(param).to.have.property('in', 'query');
         expect(param).to.have.property('description', 'How many documents to skip. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#skip)');
-        expect(param).to.have.property('type', 'integer');
-        expect(param).to.have.property('format', 'int32');
+        expect(param).to.not.have.property('type'); //v2
+        expect(param).to.have.property('schema');
+        expect(param.schema).to.have.property('type', 'integer');
+        expect(param.schema).to.have.property('format', 'int32');
         expect(param).to.have.property('required', false);
 
         done();
@@ -692,8 +694,10 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(param).to.have.property('name', 'limit');
         expect(param).to.have.property('in', 'query');
         expect(param).to.have.property('description', 'The maximum number of documents to send. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#limit)');
-        expect(param).to.have.property('type', 'integer');
-        expect(param).to.have.property('format', 'int32');
+        expect(param).to.not.have.property('type'); //v2
+        expect(param).to.have.property('schema');
+        expect(param.schema).to.have.property('type', 'integer');
+        expect(param.schema).to.have.property('format', 'int32');
         expect(param).to.have.property('required', false);
 
         done();
@@ -711,7 +715,9 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(param).to.have.property('name', 'count');
         expect(param).to.have.property('in', 'query');
         expect(param).to.have.property('description', 'Set to true to return count instead of documents. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#count)');
-        expect(param).to.have.property('type', 'boolean');
+        expect(param).to.not.have.property('type'); //v2
+        expect(param).to.have.property('schema');
+        expect(param.schema).to.have.property('type', 'boolean');
         expect(param).to.have.property('required', false);
 
         done();
@@ -729,7 +735,9 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(param).to.have.property('name', 'conditions');
         expect(param).to.have.property('in', 'query');
         expect(param).to.have.property('description', 'Set the conditions used to find or remove the document(s). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#conditions)');
-        expect(param).to.have.property('type', 'string');
+        expect(param).to.not.have.property('type'); //v2
+        expect(param).to.have.property('schema');
+        expect(param.schema).to.have.property('type', 'string');
         expect(param).to.have.property('required', false);
 
         done();
@@ -749,7 +757,9 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(param).to.have.property('name', 'sort');
         expect(param).to.have.property('in', 'query');
         expect(param).to.have.property('description', 'Set the fields by which to sort. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#sort)');
-        expect(param).to.have.property('type', 'string');
+        expect(param).to.not.have.property('type'); //v2
+        expect(param).to.have.property('schema');
+        expect(param.schema).to.have.property('type', 'string');
         expect(param).to.have.property('required', false);
 
         done();
@@ -769,7 +779,9 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(param).to.have.property('name', 'select');
         expect(param).to.have.property('in', 'query');
         expect(param).to.have.property('description', 'Select which paths will be returned by the query. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#select)');
-        expect(param).to.have.property('type', 'string');
+        expect(param).to.not.have.property('type'); //v2
+        expect(param).to.have.property('schema');
+        expect(param.schema).to.have.property('type', 'string');
         expect(param).to.have.property('required', false);
 
         done();
@@ -789,7 +801,9 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(param).to.have.property('name', 'populate');
         expect(param).to.have.property('in', 'query');
         expect(param).to.have.property('description', 'Specify which paths to populate. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#populate)');
-        expect(param).to.have.property('type', 'string');
+        expect(param).to.not.have.property('type'); //v2
+        expect(param).to.have.property('schema');
+        expect(param.schema).to.have.property('type', 'string');
         expect(param).to.have.property('required', false);
 
         done();
@@ -808,7 +822,9 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(param).to.have.property('name', 'distinct');
         expect(param).to.have.property('in', 'query');
         expect(param).to.have.property('description', 'Set to a path name to retrieve an array of distinct values. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#distinct)');
-        expect(param).to.have.property('type', 'string');
+        expect(param).to.not.have.property('type'); //v2
+        expect(param).to.have.property('schema');
+        expect(param.schema).to.have.property('type', 'string');
         expect(param).to.have.property('required', false);
 
         done();
@@ -828,7 +844,9 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(param).to.have.property('name', 'hint');
         expect(param).to.have.property('in', 'query');
         expect(param).to.have.property('description', 'Add an index hint to the query (must be enabled per controller). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#hint)');
-        expect(param).to.have.property('type', 'string');
+        expect(param).to.not.have.property('type'); //v2
+        expect(param).to.have.property('schema');
+        expect(param.schema).to.have.property('type', 'string');
         expect(param).to.have.property('required', false);
 
         done();
@@ -848,7 +866,9 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(param).to.have.property('name', 'comment');
         expect(param).to.have.property('in', 'query');
         expect(param).to.have.property('description', 'Add a comment to a query (must be enabled per controller). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#comment)');
-        expect(param).to.have.property('type', 'string');
+        expect(param).to.not.have.property('type'); //v2
+        expect(param).to.have.property('schema');
+        expect(param.schema).to.have.property('type', 'string');
         expect(param).to.have.property('required', false);
 
         done();
@@ -868,7 +888,9 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(param).to.have.property('name', 'id');
         expect(param).to.have.property('in', 'path');
         expect(param).to.have.property('description', 'The identifier of the resource.');
-        expect(param).to.have.property('type', 'string');
+        expect(param).to.not.have.property('type'); //v2
+        expect(param).to.have.property('schema');
+        expect(param.schema).to.have.property('type', 'string');
         expect(param).to.have.property('required', true);
 
         done();
@@ -887,7 +909,9 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(param).to.have.property('name', 'X-Baucis-Update-Operator');
         expect(param).to.have.property('in', 'header');
         expect(param).to.have.property('description', '**BYPASSES VALIDATION** May be used with PUT to update the document using $push, $pull, or $set. [doc](https://github.com/wprl/baucis/wiki/HTTP-Headers)');
-        expect(param).to.have.property('type', 'string');
+        expect(param).to.not.have.property('type'); //v2
+        expect(param).to.have.property('schema');
+        expect(param.schema).to.have.property('type', 'string');
         expect(param).to.have.property('required', false);
 
         done();

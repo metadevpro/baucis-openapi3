@@ -1680,86 +1680,110 @@
         "name": "id",
         "in": "path",
         "description": "The identifier of the resource.",
-        "type": "string",
+        "schema": {
+          "type": "string"
+        },
         "required": true
       },
       "skip": {
         "name": "skip",
         "in": "query",
         "description": "How many documents to skip. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#skip)",
-        "type": "integer",
-        "format": "int32",
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        },
         "required": false
       },
       "limit": {
         "name": "limit",
         "in": "query",
         "description": "The maximum number of documents to send. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#limit)",
-        "type": "integer",
-        "format": "int32",
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        },
         "required": false
       },
       "count": {
         "name": "count",
         "in": "query",
         "description": "Set to true to return count instead of documents. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#count)",
-        "type": "boolean",
+        "schema": {
+          "type": "boolean"
+        },
         "required": false
       },
       "conditions": {
         "name": "conditions",
         "in": "query",
         "description": "Set the conditions used to find or remove the document(s). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#conditions)",
-        "type": "string",
+        "schema": {
+          "type": "string"
+        },
         "required": false
       },
       "sort": {
         "name": "sort",
         "in": "query",
         "description": "Set the fields by which to sort. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#sort)",
-        "type": "string",
+        "schema": {
+          "type": "string"
+        },
         "required": false
       },
       "distinct": {
         "name": "distinct",
         "in": "query",
         "description": "Set to a path name to retrieve an array of distinct values. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#distinct)",
-        "type": "string",
+        "schema": {
+          "type": "string"
+        },
         "required": false
       },
       "hint": {
         "name": "hint",
         "in": "query",
         "description": "Add an index hint to the query (must be enabled per controller). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#hint)",
-        "type": "string",
+        "schema": {
+          "type": "string"
+        },
         "required": false
       },
       "comment": {
         "name": "comment",
         "in": "query",
         "description": "Add a comment to a query (must be enabled per controller). [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#comment)",
-        "type": "string",
+        "schema": {
+          "type": "string"
+        },
         "required": false
       },
       "select": {
         "name": "select",
         "in": "query",
         "description": "Select which paths will be returned by the query. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#select)",
-        "type": "string",
+        "schema": {
+          "type": "string"
+        },
         "required": false
       },
       "populate": {
         "name": "populate",
         "in": "query",
         "description": "Specify which paths to populate. [doc](https://github.com/wprl/baucis/wiki/Query-String-Parameters#populate)",
-        "type": "string",
+        "schema": {
+          "type": "string"
+        },
         "required": false
       },
       "X-Baucis-Update-Operator": {
         "name": "X-Baucis-Update-Operator",
         "in": "header",
         "description": "**BYPASSES VALIDATION** May be used with PUT to update the document using $push, $pull, or $set. [doc](https://github.com/wprl/baucis/wiki/HTTP-Headers)",
-        "type": "string",
+        "schema": {
+          "type": "string"
+        },
         "required": false
       }
     },
