@@ -78,7 +78,7 @@ OpenApi3Options.prototype.addSecuritySchemeApiKey = function(name, inLocation) {
 OpenApi3Options.prototype.addSecurityJWT = function(name) {
     ensureHasComponents(this);
     var data = {
-        type: "scheme",
+        type: "http",
         scheme: "bearer",
         bearerFormat: "JWT"
     };
