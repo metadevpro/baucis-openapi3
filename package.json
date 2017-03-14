@@ -1,6 +1,6 @@
 {
   "name": "baucis-openapi3",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Generate customizable OpenAPI version 3.0.0-RC0 (evolving spec) definitions for your Baucis REST API.",
   "homepage": "https://github.com/metadevpro/baucis-openapi3",
   "repository": {
