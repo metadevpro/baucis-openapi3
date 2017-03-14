@@ -200,7 +200,7 @@ describe("OptionsBuilder", function() {
                     jwt27: {
                         bearerFormat: "JWT",
                         scheme: "bearer",
-                        type: "scheme"
+                        type: "http"
                     }
                }
             }

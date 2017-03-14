@@ -1794,7 +1794,7 @@
         "scheme": "basic"
       },
       "autentication_jwt": {
-        "type": "scheme",
+        "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT"
       },

@@ -1367,7 +1367,7 @@ describe('OpenAPI 3.0 Resources', function () {
         }
 
         expect(body.components.securitySchemes.autentication_jwt).eql({
-          type: 'scheme',
+          type: 'http',
           scheme: 'bearer',
           bearerFormat: 'JWT'
         });
