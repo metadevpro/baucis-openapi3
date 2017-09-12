@@ -50,24 +50,36 @@ module.exports = function () {
     //default errors on baucis httpStatus code + string
     responses.default = {
       description: 'Unexpected error.',
-      schema: {
-        'type': 'string'
+      content: {
+        "application/json": {
+          schema: {
+            'type': 'string'
+          }
+        }
       }
     };
     if (isInstance || verb === 'post') {
       responses['200'] = {
         description: 'Sucessful response. Single resource.',
-        schema: {
-          '$ref': '#/components/schemas/' + utils.capitalize(resourceName)
+        content: {
+          "application/json": {
+            schema: {
+              '$ref': '#/components/schemas/' + utils.capitalize(resourceName)
+            }
+          }
         }
       };
     } else {
       responses['200'] = {
         description: 'Sucessful response. Collection of resources.',
-        schema: {
-          type: 'array',
-          items: {
-            $ref: '#/components/schemas/' + utils.capitalize(resourceName)
+        content: {
+          "application/json": {
+            schema: {
+              type: 'array',
+              items: {
+                $ref: '#/components/schemas/' + utils.capitalize(resourceName)
+              }
+            }
           }
         }
       };
@@ -76,18 +88,26 @@ module.exports = function () {
     responses['404'] = {
       description: (isInstance) ?
         'No ' + resourceName + ' was found with that ID.' : 'No ' + pluralName + ' matched that query.',
-      schema: {
-        'type': 'string'
-        //'$ref': '#/components/schemas/ErrorModel'
+      content: {
+        "application/json": {
+          schema: {
+            'type': 'string'
+          //'$ref': '#/components/schemas/ErrorModel'
+          }
+        }
       }
     };
     if (verb === 'put' || verb === 'post' || verb === 'patch') {
       responses['422'] = {
         description: 'Validation error.',
-        schema: {
-          type: 'array',
-          items: {
-            '$ref': '#/components/schemas/ValidationError'
+        content: {
+          "application/json": {
+            schema: {
+              type: 'array',
+              items: {
+                '$ref': '#/components/schemas/ValidationError'
+              }
+            }
           }
         }
       };
