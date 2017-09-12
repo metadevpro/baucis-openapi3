@@ -513,7 +513,9 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(rBody).to.have.property('description');
         expect(rBody.content).to.have.property('application/json');
         expect(rBody.content['application/json']).to.have.property('schema');
-
+        expect(rBody.content['application/json'].schema.$ref)
+            .to.be('#/components/schemas/Vegetable');
+        
         done(); 
       });
     });

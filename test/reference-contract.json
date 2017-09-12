@@ -201,7 +201,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/vegetable"
+                "$ref": "#/components/schemas/Vegetable"
               }
             }
           }
@@ -570,7 +570,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/fungus"
+                "$ref": "#/components/schemas/Fungus"
               }
             }
           }
@@ -926,7 +926,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/goose"
+                "$ref": "#/components/schemas/Goose"
               }
             }
           }
@@ -1282,7 +1282,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/chargeArea"
+                "$ref": "#/components/schemas/ChargeArea"
               }
             }
           }
@@ -1638,7 +1638,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/chargeCluster"
+                "$ref": "#/components/schemas/ChargeCluster"
               }
             }
           }

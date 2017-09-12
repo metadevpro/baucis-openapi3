@@ -1,5 +1,9 @@
 # Changelog
 
+**Version 0.2.3**
+
+- Fixed case when referencing a Schema Type
+
 **Version 0.2.2**
 
 - Fixed request and response objects to fit the final version v. 3.0.0

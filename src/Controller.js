@@ -34,7 +34,7 @@ module.exports = function () {
       content: {
         "application/json": {
           schema:{
-            $ref: "#/components/schemas/" + resourceName
+            $ref: "#/components/schemas/" + utils.capitalize(resourceName)
           }
         }
       }
