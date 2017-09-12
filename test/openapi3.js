@@ -533,23 +533,24 @@ describe('OpenAPI 3.0 Resources', function () {
 
         var instanceResponses = body.paths['/vegetables/{id}'].get.responses;
         expect(instanceResponses['404'].description).to.be('No vegetable was found with that ID.');
-        expect(instanceResponses['404'].schema.type).to.be('string');
+        
+        expect(instanceResponses['404'].content['application/json'].schema.type).to.be('string');
         expect(instanceResponses['200'].description).to.be('Sucessful response. Single resource.');
-        expect(instanceResponses['200'].schema.$ref).to.be('#/components/schemas/Vegetable');
+        expect(instanceResponses['200'].content['application/json'].schema.$ref).to.be('#/components/schemas/Vegetable');
         expect(instanceResponses.default.description).to.be('Unexpected error.');
-        expect(instanceResponses.default.schema.type).to.be('string');
+        expect(instanceResponses.default.content['application/json'].schema.type).to.be('string');
         expect(Object.keys(instanceResponses).length).to.be(3);
 
         var collectionResponses = body.paths['/vegetables'].post.responses;
         expect(collectionResponses['404'].description).to.be('No vegetables matched that query.');
-        expect(collectionResponses['404'].schema.type).to.be('string');
+        expect(collectionResponses['404'].content['application/json'].schema.type).to.be('string');
         expect(collectionResponses['422'].description).to.be('Validation error.');
-        expect(collectionResponses['422'].schema.type).to.be('array');
-        expect(collectionResponses['422'].schema.items.$ref).to.be('#/components/schemas/ValidationError');
+        expect(collectionResponses['422'].content['application/json'].schema.type).to.be('array');
+        expect(collectionResponses['422'].content['application/json'].schema.items.$ref).to.be('#/components/schemas/ValidationError');
         expect(collectionResponses['200'].description).to.be('Sucessful response. Single resource.');
-        expect(collectionResponses['200'].schema.$ref).to.be('#/components/schemas/Vegetable');
+        expect(collectionResponses['200'].content['application/json'].schema.$ref).to.be('#/components/schemas/Vegetable');
         expect(collectionResponses.default.description).to.be('Unexpected error.');
-        expect(collectionResponses.default.schema.type).to.be('string');
+        expect(collectionResponses.default.content['application/json'].schema.type).to.be('string');
         expect(Object.keys(collectionResponses).length).to.be(4);
 
         done();
@@ -570,8 +571,8 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(operation).to.be.an(Object);
         expect(operation.responses).to.have.property('422');
         expect(operation.responses['422']).to.have.property('description', 'Validation error.');
-        expect(operation.responses['422'].schema.type).to.be('array');
-        expect(operation.responses['422'].schema.items.$ref).to.be('#/components/schemas/ValidationError');
+        expect(operation.responses['422'].content['application/json'].schema.type).to.be('array');
+        expect(operation.responses['422'].content['application/json'].schema.items.$ref).to.be('#/components/schemas/ValidationError');
 
         done();
       });
@@ -591,8 +592,8 @@ describe('OpenAPI 3.0 Resources', function () {
         expect(operation).to.be.an(Object);
         expect(operation.responses).to.have.property('422');
         expect(operation.responses['422']).to.have.property('description', 'Validation error.');
-        expect(operation.responses['422'].schema.type).to.be('array');
-        expect(operation.responses['422'].schema.items.$ref).to.be('#/components/schemas/ValidationError');
+        expect(operation.responses['422'].content['application/json'].schema.type).to.be('array');
+        expect(operation.responses['422'].content['application/json'].schema.items.$ref).to.be('#/components/schemas/ValidationError');
 
         done();
       });

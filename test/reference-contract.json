@@ -109,20 +109,32 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/Vegetable"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vegetable"
+                }
+              }
             }
           },
           "404": {
             "description": "No vegetable was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -142,29 +154,45 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/Vegetable"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vegetable"
+                }
+              }
             }
           },
           "404": {
             "description": "No vegetable was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "422": {
             "description": "Validation error.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ValidationError"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
               }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -189,20 +217,32 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/Vegetable"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vegetable"
+                }
+              }
             }
           },
           "404": {
             "description": "No vegetable was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -253,23 +293,35 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Collection of resources.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Vegetable"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Vegetable"
+                  }
+                }
               }
             }
           },
           "404": {
             "description": "No vegetables matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -284,29 +336,45 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/Vegetable"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vegetable"
+                }
+              }
             }
           },
           "404": {
             "description": "No vegetables matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "422": {
             "description": "Validation error.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ValidationError"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
               }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -341,23 +409,35 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Collection of resources.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Vegetable"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Vegetable"
+                  }
+                }
               }
             }
           },
           "404": {
             "description": "No vegetables matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -398,20 +478,32 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/Fungus"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Fungus"
+                }
+              }
             }
           },
           "404": {
             "description": "No fungus was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -431,29 +523,45 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/Fungus"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Fungus"
+                }
+              }
             }
           },
           "404": {
             "description": "No fungus was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "422": {
             "description": "Validation error.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ValidationError"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
               }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -478,20 +586,32 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/Fungus"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Fungus"
+                }
+              }
             }
           },
           "404": {
             "description": "No fungus was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -542,23 +662,35 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Collection of resources.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Fungus"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Fungus"
+                  }
+                }
               }
             }
           },
           "404": {
             "description": "No fungi matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -573,29 +705,45 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/Fungus"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Fungus"
+                }
+              }
             }
           },
           "404": {
             "description": "No fungi matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "422": {
             "description": "Validation error.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ValidationError"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
               }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -630,23 +778,35 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Collection of resources.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Fungus"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Fungus"
+                  }
+                }
               }
             }
           },
           "404": {
             "description": "No fungi matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -674,20 +834,32 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/Goose"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Goose"
+                }
+              }
             }
           },
           "404": {
             "description": "No goose was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -707,29 +879,45 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/Goose"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Goose"
+                }
+              }
             }
           },
           "404": {
             "description": "No goose was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "422": {
             "description": "Validation error.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ValidationError"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
               }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -754,20 +942,32 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/Goose"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Goose"
+                }
+              }
             }
           },
           "404": {
             "description": "No goose was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -818,23 +1018,35 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Collection of resources.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Goose"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Goose"
+                  }
+                }
               }
             }
           },
           "404": {
             "description": "No geese matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -849,29 +1061,45 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/Goose"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Goose"
+                }
+              }
             }
           },
           "404": {
             "description": "No geese matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "422": {
             "description": "Validation error.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ValidationError"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
               }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -906,23 +1134,35 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Collection of resources.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Goose"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Goose"
+                  }
+                }
               }
             }
           },
           "404": {
             "description": "No geese matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -950,20 +1190,32 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/ChargeArea"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChargeArea"
+                }
+              }
             }
           },
           "404": {
             "description": "No chargeArea was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -983,29 +1235,45 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/ChargeArea"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChargeArea"
+                }
+              }
             }
           },
           "404": {
             "description": "No chargeArea was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "422": {
             "description": "Validation error.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ValidationError"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
               }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -1030,20 +1298,32 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/ChargeArea"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChargeArea"
+                }
+              }
             }
           },
           "404": {
             "description": "No chargeArea was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -1094,23 +1374,35 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Collection of resources.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ChargeArea"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChargeArea"
+                  }
+                }
               }
             }
           },
           "404": {
             "description": "No chargeareas matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -1125,29 +1417,45 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/ChargeArea"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChargeArea"
+                }
+              }
             }
           },
           "404": {
             "description": "No chargeareas matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "422": {
             "description": "Validation error.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ValidationError"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
               }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -1182,23 +1490,35 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Collection of resources.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ChargeArea"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChargeArea"
+                  }
+                }
               }
             }
           },
           "404": {
             "description": "No chargeareas matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -1226,20 +1546,32 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/ChargeCluster"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChargeCluster"
+                }
+              }
             }
           },
           "404": {
             "description": "No chargeCluster was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -1259,29 +1591,45 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/ChargeCluster"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChargeCluster"
+                }
+              }
             }
           },
           "404": {
             "description": "No chargeCluster was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "422": {
             "description": "Validation error.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ValidationError"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
               }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -1306,20 +1654,32 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/ChargeCluster"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChargeCluster"
+                }
+              }
             }
           },
           "404": {
             "description": "No chargeCluster was found with that ID.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -1370,23 +1730,35 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Collection of resources.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ChargeCluster"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChargeCluster"
+                  }
+                }
               }
             }
           },
           "404": {
             "description": "No chargeclusters matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -1401,29 +1773,45 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Single resource.",
-            "schema": {
-              "$ref": "#/components/schemas/ChargeCluster"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChargeCluster"
+                }
+              }
             }
           },
           "404": {
             "description": "No chargeclusters matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "422": {
             "description": "Validation error.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ValidationError"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationError"
+                  }
+                }
               }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
@@ -1458,23 +1846,35 @@
         "responses": {
           "200": {
             "description": "Sucessful response. Collection of resources.",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ChargeCluster"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChargeCluster"
+                  }
+                }
               }
             }
           },
           "404": {
             "description": "No chargeclusters matched that query.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           },
           "default": {
             "description": "Unexpected error.",
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
             }
           }
         },
