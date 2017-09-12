@@ -30,9 +30,9 @@ module.exports = function () {
   }
   function buildRequestBodyFor(isInstance, verb, resourceName) {
     var requestBody = {
+      description: humanVerb(verb) + " a " + resourceName +" by sending the paths to be updated in the request body.",
       content: {
         "application/json": {
-          description: humanVerb(verb) + " a " + resourceName +" by sending the paths to be updated in the request body.",
           schema:{
             $ref: "#/components/schemas/" + resourceName
           }

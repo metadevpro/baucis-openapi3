@@ -197,9 +197,9 @@
           }
         },
         "requestBody": {
+          "description": "Update a vegetable by sending the paths to be updated in the request body.",
           "content": {
             "application/json": {
-              "description": "Update a vegetable by sending the paths to be updated in the request body.",
               "schema": {
                 "$ref": "#/components/schemas/vegetable"
               }
@@ -566,9 +566,9 @@
           }
         },
         "requestBody": {
+          "description": "Update a fungus by sending the paths to be updated in the request body.",
           "content": {
             "application/json": {
-              "description": "Update a fungus by sending the paths to be updated in the request body.",
               "schema": {
                 "$ref": "#/components/schemas/fungus"
               }
@@ -922,9 +922,9 @@
           }
         },
         "requestBody": {
+          "description": "Update a goose by sending the paths to be updated in the request body.",
           "content": {
             "application/json": {
-              "description": "Update a goose by sending the paths to be updated in the request body.",
               "schema": {
                 "$ref": "#/components/schemas/goose"
               }
@@ -1278,9 +1278,9 @@
           }
         },
         "requestBody": {
+          "description": "Update a chargeArea by sending the paths to be updated in the request body.",
           "content": {
             "application/json": {
-              "description": "Update a chargeArea by sending the paths to be updated in the request body.",
               "schema": {
                 "$ref": "#/components/schemas/chargeArea"
               }
@@ -1634,9 +1634,9 @@
           }
         },
         "requestBody": {
+          "description": "Update a chargeCluster by sending the paths to be updated in the request body.",
           "content": {
             "application/json": {
-              "description": "Update a chargeCluster by sending the paths to be updated in the request body.",
               "schema": {
                 "$ref": "#/components/schemas/chargeCluster"
               }

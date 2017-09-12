@@ -510,9 +510,9 @@ describe('OpenAPI 3.0 Resources', function () {
         var rBody = body.paths['/vegetables/{id}'].put.requestBody;
 
         expect(rBody).to.have.property('content');
+        expect(rBody).to.have.property('description');
         expect(rBody.content).to.have.property('application/json');
         expect(rBody.content['application/json']).to.have.property('schema');
-        expect(rBody.content['application/json']).to.have.property('description');
 
         done(); 
       });
