@@ -1,6 +1,8 @@
 baucis-openapi3
 ===============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/metadevpro/baucis-openapi3.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/metadevpro/baucis-openapi3.svg)](https://travis-ci.org/metadevpro/baucis-openapi3)
 [![Coverage Status](https://coveralls.io/repos/github/metadevpro/baucis-openapi3/badge.svg?branch=master)](https://coveralls.io/github/metadevpro/baucis-openapi3?branch=master)
 [![Dependency Status](https://david-dm.org/metadevpro/baucis-openapi3.svg)](https://david-dm.org/metadevpro/baucis-openapi3)
