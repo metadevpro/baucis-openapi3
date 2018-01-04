@@ -24,7 +24,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "deco": "~0.12.3"
+    "deco": "~2.0.2"
   },
   "peerDependencies": {
     "mongoose": ">=3 <5",
