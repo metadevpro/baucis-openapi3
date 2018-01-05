@@ -52,5 +52,10 @@
     "openapi3",
     "swagger",
     "documentation"
-  ]
+  ],
+  "greenkeeper": {
+    "ignore": [
+      "deco"
+    ]
+  }
 }
