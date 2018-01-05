@@ -1,7 +1,6 @@
 baucis-openapi3
 ===============
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/metadevpro/baucis-openapi3.svg)](https://greenkeeper.io/)
 
 [![Build Status](https://travis-ci.org/metadevpro/baucis-openapi3.svg)](https://travis-ci.org/metadevpro/baucis-openapi3)
 [![Coverage Status](https://coveralls.io/repos/github/metadevpro/baucis-openapi3/badge.svg?branch=master)](https://coveralls.io/github/metadevpro/baucis-openapi3?branch=master)
@@ -9,6 +8,7 @@ baucis-openapi3
 [![bitHound Overall Score](https://www.bithound.io/github/metadevpro/baucis-openapi3/badges/score.svg)](https://www.bithound.io/github/metadevpro/baucis-openapi3)
 [![Known Vulnerabilities](https://snyk.io/test/npm/baucis-openapi3/badge.svg)](https://snyk.io/test/npm/baucis-openapi3)
 [![npm version](https://badge.fury.io/js/baucis-openapi3.svg)](http://badge.fury.io/js/baucis-openapi3)
+[![Greenkeeper badge](https://badges.greenkeeper.io/metadevpro/baucis-openapi3.svg)](https://greenkeeper.io/)
 
 [![NPM](https://nodei.co/npm/baucis-openapi3.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/baucis-openapi3/)
 
