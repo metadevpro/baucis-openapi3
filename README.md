@@ -109,4 +109,4 @@ Contact
  * [@metad3v](https://twitter.com/metad3v) https://metadev.pro
  * [@pmolinam](https://twitter.com/pmolinam)
 
-&copy; 2017 Metadev
+Released under MIT License. &copy; 2017-2018 Metadev
