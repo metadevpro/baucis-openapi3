@@ -55,7 +55,8 @@
   ],
   "greenkeeper": {
     "ignore": [
-      "deco"
+      "deco",
+      "mongoose"
     ]
   }
 }
