@@ -455,6 +455,7 @@ module.exports = function () {
 
     // Paths
     var pluralName = controller.model().plural();
+    var methods = controller.methods();
 
     var collectionPath = '/' + pluralName;
     var instancePath = '/' + pluralName + '/{id}';
@@ -463,7 +464,6 @@ module.exports = function () {
     buildPathParams(paths, instancePath, true);
     buildPathParams(paths, collectionPath, false);
 
-    const methods = controller.methods();
 
     if (methods.indexOf('get') > -1) buildOperation(paths[instancePath], 'instance', 'get');
     if (methods.indexOf('put') > -1) buildOperation(paths[instancePath], 'instance', 'put');
