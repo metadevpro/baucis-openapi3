@@ -463,18 +463,22 @@ module.exports = function () {
     buildPathParams(paths, instancePath, true);
     buildPathParams(paths, collectionPath, false);
 
-    buildOperation(paths[instancePath], 'instance', 'get');
-    buildOperation(paths[instancePath], 'instance', 'put');
-    buildOperation(paths[instancePath], 'instance', 'delete');
-    buildOperation(paths[collectionPath], 'collection', 'get');
-    buildOperation(paths[collectionPath], 'collection', 'post');
-    buildOperation(paths[collectionPath], 'collection', 'delete');
+    const methods = controller.methods();
+
+    if (methods.indexOf('get') > -1) buildOperation(paths[instancePath], 'instance', 'get');
+    if (methods.indexOf('put') > -1) buildOperation(paths[instancePath], 'instance', 'put');
+    if (methods.indexOf('delete') > -1) buildOperation(paths[instancePath], 'instance', 'delete');
+    if (methods.indexOf('get') > -1) buildOperation(paths[collectionPath], 'collection', 'get');
+    if (methods.indexOf('post') > -1) buildOperation(paths[collectionPath], 'collection', 'post');
+    if (methods.indexOf('delete') > -1) buildOperation(paths[collectionPath], 'collection', 'delete');
+    
     controller.openApi3.paths = paths;
 
     return controller;
   };
 
   function buildPathParams(pathContainer, path, isInstance) {
+    console.log(pathContainer, path, isInstance)
     var pathParams = params.generatePathParameters(isInstance);
     if (pathParams.length > 0) {
       pathContainer[path] = {
