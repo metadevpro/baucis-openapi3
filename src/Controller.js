@@ -455,6 +455,7 @@ module.exports = function () {
 
     // Paths
     var pluralName = controller.model().plural();
+    var methods = controller.methods();
 
     var collectionPath = '/' + pluralName;
     var instancePath = '/' + pluralName + '/{id}';
@@ -463,12 +464,24 @@ module.exports = function () {
     buildPathParams(paths, instancePath, true);
     buildPathParams(paths, collectionPath, false);
 
-    buildOperation(paths[instancePath], 'instance', 'get');
-    buildOperation(paths[instancePath], 'instance', 'put');
-    buildOperation(paths[instancePath], 'instance', 'delete');
-    buildOperation(paths[collectionPath], 'collection', 'get');
-    buildOperation(paths[collectionPath], 'collection', 'post');
-    buildOperation(paths[collectionPath], 'collection', 'delete');
+    if (methods.indexOf('get') > -1) {
+      buildOperation(paths[instancePath], 'instance', 'get');
+      buildOperation(paths[collectionPath], 'collection', 'get');
+    }
+
+    if (methods.indexOf('put') > -1) {
+      buildOperation(paths[instancePath], 'instance', 'put');
+    }
+
+    if (methods.indexOf('delete') > -1) {
+      buildOperation(paths[instancePath], 'instance', 'delete');
+      buildOperation(paths[collectionPath], 'collection', 'delete');
+    }
+
+    if (methods.indexOf('post') > -1) {
+      buildOperation(paths[collectionPath], 'collection', 'post');
+    }
+
     controller.openApi3.paths = paths;
 
     return controller;
