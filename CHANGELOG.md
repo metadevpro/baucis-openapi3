@@ -1,5 +1,9 @@
 # Changelog
 
+**Version 0.3.0**
+
+- Hide disabled HTTP methods. (thanks to @swordfish444)
+
 **Version 0.2.3**
 
 - Fixed case when referencing a Schema Type
