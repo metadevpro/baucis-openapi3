@@ -464,13 +464,23 @@ module.exports = function () {
     buildPathParams(paths, instancePath, true);
     buildPathParams(paths, collectionPath, false);
 
+    if (methods.indexOf('get') > -1) {
+      buildOperation(paths[instancePath], 'instance', 'get');
+      buildOperation(paths[collectionPath], 'collection', 'get');
+    }
 
-    if (methods.indexOf('get') > -1) buildOperation(paths[instancePath], 'instance', 'get');
-    if (methods.indexOf('put') > -1) buildOperation(paths[instancePath], 'instance', 'put');
-    if (methods.indexOf('delete') > -1) buildOperation(paths[instancePath], 'instance', 'delete');
-    if (methods.indexOf('get') > -1) buildOperation(paths[collectionPath], 'collection', 'get');
-    if (methods.indexOf('post') > -1) buildOperation(paths[collectionPath], 'collection', 'post');
-    if (methods.indexOf('delete') > -1) buildOperation(paths[collectionPath], 'collection', 'delete');
+    if (methods.indexOf('put') > -1) {
+      buildOperation(paths[instancePath], 'instance', 'put');
+    }
+
+    if (methods.indexOf('delete') > -1) {
+      buildOperation(paths[instancePath], 'instance', 'delete');
+      buildOperation(paths[collectionPath], 'collection', 'delete');
+    }
+
+    if (methods.indexOf('post') > -1) {
+      buildOperation(paths[collectionPath], 'collection', 'post');
+    }
 
     controller.openApi3.paths = paths;
 
