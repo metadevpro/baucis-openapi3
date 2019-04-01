@@ -78,6 +78,7 @@ function buildPaths(opts, controllers) {
   var paths = {};
   if (controllers) {
     controllers.forEach(function (controller) {
+      console.log("Controller ==> ", controller);
       controller.generateOpenApi3();
       var collection = controller.openApi3.paths;
       for (var path in collection) {
