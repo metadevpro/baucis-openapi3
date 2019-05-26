@@ -31,7 +31,7 @@
     "baucis": "^1.0.0"
   },
   "devDependencies": {
-    "async": "^2.6.2",
+    "async": "^3.0.1",
     "baucis": "~1.6.8",
     "codeclimate-test-reporter": "^0.5.1",
     "coveralls": "^3.0.3",
