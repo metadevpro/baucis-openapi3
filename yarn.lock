@@ -256,14 +256,16 @@ baucis-links@^1.0.0:
   dependencies:
     deco "^0.12.3"
 
-baucis@~1.6.8:
-  version "1.6.8"
-  resolved "https://registry.yarnpkg.com/baucis/-/baucis-1.6.8.tgz#4066192e853f92f50bcc057601f8270511ed9982"
+baucis@~2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/baucis/-/baucis-2.0.0.tgz#eeeea71de69dae70dcded199ff62ea2dc62803fc"
+  integrity sha512-du6U6EDrxjAGZBtMPn4ClTdSl+sK+NYkzT6W0TSmZnbVv6xcIoDOM9U8NWyrmn3ZbRPVhN1XlGG2r1rdLpyLvA==
   dependencies:
     baucis-json "^1.0.0"
     baucis-links "^1.0.0"
     deco "^0.12.0"
     event-stream "^3.3.0"
+    pluralize "^7.0.0"
     rest-error "^1.2.0"
     semver "^4.3.4"
 
@@ -2250,6 +2252,11 @@ pkg-dir@^3.0.0:
   resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-3.0.0.tgz#2749020f239ed990881b1f71210d51eb6523bea3"
   dependencies:
     find-up "^3.0.0"
+
+pluralize@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
+  integrity sha512-ARhBOdzS3e41FbkW/XWrTEtukqqLoK5+Z/4UeDaLuSW+39JPeFgs4gCGqsrJHVZX0fUrx//4OF0K1CUGwlIFow==
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
